@@ -5,8 +5,6 @@ import {
   NavbarItem,
   NavbarBrand,
   Button,
-  Card,
-  CardBody,
   Avatar,
   Badge,
   Link,
@@ -155,11 +153,12 @@ export default function App() {
               alt="Fodil Fliti"
             />
             <Badge
-              content="Available"
               color="success"
               size="lg"
               className="absolute bottom-6 right-6"
-            />
+            >
+              Available
+            </Badge>
           </div>
         </section>
 

@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, CardBody, Chip, Link } from "@heroui/react";
 
 interface ProjectCardProps {
@@ -9,15 +8,17 @@ interface ProjectCardProps {
   link?: string;
 }
 
-export function ProjectCard({ title, description, image, tags, link }: ProjectCardProps) {
+export function ProjectCard({
+  title,
+  description,
+  image,
+  tags,
+  link,
+}: ProjectCardProps) {
   return (
     <Card className="overflow-hidden" isHoverable>
       <CardBody className="p-0">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-48 object-cover"
-        />
+        <img src={image} alt={title} className="w-full h-48 object-cover" />
         <div className="p-4">
           <h3 className="text-xl font-semibold mb-2">
             {link ? (
