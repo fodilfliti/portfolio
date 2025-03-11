@@ -146,19 +146,12 @@ export default function App() {
               </Button>
             </div>
           </div>
-          <div className="relative">
-            <Avatar
+          <div className="relative border-4 border-blue-500 rounded-full p-2">
+            <img
               src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_original/v1/attachments/profile/photo/1f2f1cc5a1c2c7b0fd75f3792f424454-1661217693095/e7ecbaef-08e7-4841-b4d0-5c8380638807.jpg"
-              className="w-64 h-64 text-large"
               alt="Fodil Fliti"
+              className="w-64 h-64 rounded-full object-cover"
             />
-            <Badge
-              color="success"
-              size="lg"
-              className="absolute bottom-6 right-6"
-            >
-              Available
-            </Badge>
           </div>
         </section>
 
