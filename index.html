@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -39,10 +39,12 @@
           {
             type: "CONSOLE_ERROR",
             message: errorBuffer.map((errors) =>
-              errors.map((err) => (typeof err === "object" ? JSON.stringify(err) : err)),
+              errors.map((err) =>
+                typeof err === "object" ? JSON.stringify(err) : err
+              )
             ),
           },
-          "*",
+          "*"
         );
         originalConsoleError.apply(console, args);
       };
@@ -55,7 +57,7 @@
             type: "UNHANDLED_ERROR",
             message: formatError(event.error),
           },
-          "*",
+          "*"
         );
       });
 
@@ -66,7 +68,7 @@
             type: "UNHANDLED_REJECTION",
             message: formatError(event.reason),
           },
-          "*",
+          "*"
         );
       });
 
@@ -83,7 +85,7 @@
               isMounted,
               content: root ? root.innerHTML : null,
             },
-            "*",
+            "*"
           );
         }, 300);
       });
