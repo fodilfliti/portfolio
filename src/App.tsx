@@ -65,9 +65,9 @@ export default function App() {
     {
       title: "Distractmap",
       description:
-        "Feature-rich social networking platform with real-time chat, media sharing, and user interactions.",
-      image:
         "A system for solving societal problems of citizens and assisting employees using the principle of geographic information systems - mobile application",
+      image:
+        "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/4d509fdd5efeed5824b1724baef0063f-1700923378175/5401581.png",
       tags: ["Flutter", "WebSocket", "REST API", "Provider"],
       link: "https://www.fiverr.com/users/fodilfliti150/portfolio/NjU2MjA4ODJmZWRlYjUwMDAxOTVjZmFl",
     },
