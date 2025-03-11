@@ -18,7 +18,9 @@ export function ProjectCard({
   return (
     <Card className="overflow-hidden" isHoverable>
       <CardBody className="p-0">
-        <img src={image} alt={title} className="w-full h-48 object-cover" />
+        <Link href={link} target="_blank" className="hover:text-blue-600">
+          <img src={image} alt={title} className="w-full h-48 object-cover" />{" "}
+        </Link>
         <div className="p-4">
           <h3 className="text-xl font-semibold mb-2">
             {link ? (

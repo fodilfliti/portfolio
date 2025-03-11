@@ -1,27 +1,30 @@
-# Node modules
-node_modules/
-
-# Build output
-dist/
-
 # Logs
 logs
 *.log
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+node_modules
+dist
+dist-ssr
+*.local
 
-# IDE settings
-.vscode/
-.idea/
-
-# Mac system files
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
-# Windows system files
-Thumbs.db
+
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+bun.lockb

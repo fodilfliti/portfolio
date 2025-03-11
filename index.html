@@ -1,119 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_original/v1/attachments/profile/photo/1f2f1cc5a1c2c7b0fd75f3792f424454-1661217693095/e7ecbaef-08e7-4841-b4d0-5c8380638807.jpg"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HeroUI Chat - App</title>
+    <title>Fodil FLiti Dev</title>
+    <meta key="title" content="Fliti Fodil Dev" property="og:title" />
+    <meta content="Make beautiful mobile apps." property="og:description" />
+    <meta content="Make beautiful mobile apps." name="description" />
+    <meta
+      key="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+      name="viewport"
+    />
+    <link
+      href="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_original/v1/attachments/profile/photo/1f2f1cc5a1c2c7b0fd75f3792f424454-1661217693095/e7ecbaef-08e7-4841-b4d0-5c8380638807.jpg"
+      rel="icon"
+    />
   </head>
-  <body class="h-full min-h-screen">
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script>
-      // Create an array to store multiple errors
-      let errorBuffer = [];
-      const originalConsoleError = console.error;
-
-      function formatError(error) {
-        if (error instanceof Error) {
-          return {
-            type: "Error",
-            message: error.message,
-            stack: error.stack,
-            name: error.name,
-          };
-        }
-        if (typeof error === "object") {
-          return JSON.stringify(error);
-        }
-        return error;
-      }
-
-      console.error = function (...args) {
-        // Format the error message
-        const formattedError = args.map(formatError);
-        // Add to error buffer
-        errorBuffer.push(formattedError);
-        // Send all accumulated errors to parent
-        window.parent.postMessage(
-          {
-            type: "CONSOLE_ERROR",
-            message: errorBuffer.map((errors) =>
-              errors.map((err) =>
-                typeof err === "object" ? JSON.stringify(err) : err
-              )
-            ),
-          },
-          "*"
-        );
-        originalConsoleError.apply(console, args);
-      };
-
-      // Also capture unhandled errors and rejections
-      window.addEventListener("error", function (event) {
-        console.error(formatError(event.error));
-        window.parent.postMessage(
-          {
-            type: "UNHANDLED_ERROR",
-            message: formatError(event.error),
-          },
-          "*"
-        );
-      });
-
-      window.addEventListener("unhandledrejection", function (event) {
-        console.error(formatError(event.reason));
-        window.parent.postMessage(
-          {
-            type: "UNHANDLED_REJECTION",
-            message: formatError(event.reason),
-          },
-          "*"
-        );
-      });
-
-      // Debounce the mutation observer callback
-      let debounceTimeout;
-      const observer = new MutationObserver((mutations) => {
-        if (debounceTimeout) clearTimeout(debounceTimeout);
-        debounceTimeout = setTimeout(() => {
-          const root = document.getElementById("root");
-          const isMounted = root && root.children.length > 0;
-          window.parent.postMessage(
-            {
-              type: "ROOT_MOUNT_STATUS",
-              isMounted,
-              content: root ? root.innerHTML : null,
-            },
-            "*"
-          );
-        }, 300);
-      });
-
-      observer.observe(document.getElementById("root"), {
-        childList: true,
-        subtree: true,
-      });
-
-      // Add message event listener for history navigation
-      window.addEventListener("message", (event) => {
-        try {
-          switch (event.data.type) {
-            case "HISTORY_BACK":
-              if (window.history.length > 1) {
-                window.history.back();
-              }
-              break;
-            case "HISTORY_FORWARD":
-              if (window.history.length > 1) {
-                window.history.forward();
-              }
-              break;
-          }
-        } catch (error) {
-          console.error("Navigation error:", error);
-        }
-      });
-    </script>
   </body>
 </html>
